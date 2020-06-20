@@ -12,7 +12,7 @@ type Curso {
 
 
 type Query {
-	alunos: [Aluno!]!
+	alunos(contemNome: String, idadeAte: Int, idadeAcimaDe: Int): [Aluno!]!
 	aluno(id: ID!): Aluno
 	cursos: [Curso!]!
 }

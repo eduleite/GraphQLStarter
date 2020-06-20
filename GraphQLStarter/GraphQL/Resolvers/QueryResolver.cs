@@ -19,9 +19,22 @@ namespace GraphQLStarter.GraphQL.Resolvers
             this.database = database;
         }
 
-        public IList<Aluno> Alunos()
+        public IList<Aluno> Alunos(string contemNome, int? idadeAte, int? idadeAcimaDe)
         {
-            return database.Alunos;
+            var result = database.Alunos;
+            if (contemNome != null)
+            {
+                result = result.Where(aluno => aluno.Nome.Contains(contemNome)).ToList();
+            }
+            if (idadeAte.HasValue)
+            {
+                result = result.Where(aluno => aluno.Idade <= idadeAte.Value).ToList();
+            }
+            if (idadeAcimaDe.HasValue)
+            {
+                result = result.Where(aluno => aluno.Idade >= idadeAcimaDe.Value).ToList();
+            }
+            return result;
         }
 
         public Aluno Aluno(int id)
