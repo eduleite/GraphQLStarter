@@ -24,6 +24,11 @@ namespace GraphQLStarter.GraphQL.Resolvers
             return database.Alunos;
         }
 
+        public Aluno Aluno(int id)
+        {
+            return database.Alunos.Where(aluno => aluno.Id == id).FirstOrDefault();
+        }
+
         public IList<Curso> Cursos()
         {
             return database.Cursos;

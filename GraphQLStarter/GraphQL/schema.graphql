@@ -13,6 +13,7 @@ type Curso {
 
 type Query {
 	alunos: [Aluno!]!
+	aluno(id: ID!): Aluno
 	cursos: [Curso!]!
 }
 
