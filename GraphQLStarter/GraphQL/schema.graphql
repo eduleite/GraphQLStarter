@@ -8,6 +8,7 @@ type Curso {
 	id: ID!
 	nome: String!
 	descricao: String!
+	inscritos: [Aluno!]!
 }
 
 

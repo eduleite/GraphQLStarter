@@ -24,7 +24,8 @@ namespace GraphQLStarter.GraphQL
                 .BindComplexType<Aluno>(configuration => configuration.To("Aluno"))
                 .BindComplexType<Curso>(configuration => configuration.To("Curso"))
                 .BindResolver<MutationResolver>(configuration => configuration.To("Mutation"))
-                .BindComplexType<ResultadoInscricao>(configuration => configuration.To("ResultadoInscricao"));
+                .BindComplexType<ResultadoInscricao>(configuration => configuration.To("ResultadoInscricao"))
+                .BindResolver<CursoResolver>(configuration => configuration.To("Curso"));
 
             services.AddGraphQL(schema);
 
