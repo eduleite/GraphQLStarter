@@ -17,6 +17,12 @@ type Query {
 	cursos: [Curso!]!
 }
 
+type ResultadoInscricao {
+	sucesso: Boolean!
+	mensagemErro: String
+}
+
 type Mutation {
 	cadastrarAluno(id: ID!, nome: String!, idade: Int!): Boolean!
+	inscreverAlunoEmCurso(idAluno: ID!, idCurso: ID!): ResultadoInscricao!
 }

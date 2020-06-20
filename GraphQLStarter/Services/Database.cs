@@ -42,5 +42,7 @@ namespace GraphQLStarter.Services
             }
         };
 
+        public IList<(Curso curso, Aluno aluno)> Inscricoes { get; set; } = new List<(Curso curso, Aluno aluno)>();
+
     }
 }
