@@ -1,4 +1,5 @@
 ﻿using GraphQLStarter.GraphQL.Resolvers;
+using GraphQLStarter.Model;
 using HotChocolate;
 using HotChocolate.AspNetCore;
 using HotChocolate.AspNetCore.GraphiQL;
@@ -19,7 +20,9 @@ namespace GraphQLStarter.GraphQL
         {
             var schema = SchemaBuilder.New()
                 .AddDocumentFromString(LoadSchemaFromFile())
-                .BindResolver<QueryResolver>(configuration => configuration.To("Query"));
+                .BindResolver<QueryResolver>(configuration => configuration.To("Query"))
+                .BindComplexType<Aluno>(configuration => configuration.To("Aluno"))
+                .BindComplexType<Curso>(configuration => configuration.To("Curso"));
 
             services.AddGraphQL(schema);
 

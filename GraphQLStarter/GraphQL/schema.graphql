@@ -1,3 +1,17 @@
+type Aluno {
+	id: ID!
+	nome: String!
+	idade: Int!
+}
+
+type Curso {
+	id: ID!
+	nome: String!
+	descricao: String!
+}
+
+
 type Query {
-	helloWorld: String!
+	alunos: [Aluno!]!
+	cursos: [Curso!]!
 }

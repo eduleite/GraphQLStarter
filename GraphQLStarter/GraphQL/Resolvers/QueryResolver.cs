@@ -1,5 +1,9 @@
-﻿using System;
+﻿using GraphQLStarter.Model;
+using GraphQLStarter.Services;
+using HotChocolate;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,9 +12,21 @@ namespace GraphQLStarter.GraphQL.Resolvers
     public class QueryResolver
     {
 
-        public string HelloWorld()
+        private readonly Database database;
+
+        public QueryResolver(Database database)
         {
-            return "Hello World!";
+            this.database = database;
+        }
+
+        public IList<Aluno> Alunos()
+        {
+            return database.Alunos;
+        }
+
+        public IList<Curso> Cursos()
+        {
+            return database.Cursos;
         }
 
     }
