@@ -22,7 +22,8 @@ namespace GraphQLStarter.GraphQL
                 .AddDocumentFromString(LoadSchemaFromFile())
                 .BindResolver<QueryResolver>(configuration => configuration.To("Query"))
                 .BindComplexType<Aluno>(configuration => configuration.To("Aluno"))
-                .BindComplexType<Curso>(configuration => configuration.To("Curso"));
+                .BindComplexType<Curso>(configuration => configuration.To("Curso"))
+                .BindResolver<MutationResolver>(configuration => configuration.To("Mutation"));
 
             services.AddGraphQL(schema);
 

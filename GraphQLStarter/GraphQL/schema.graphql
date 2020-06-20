@@ -15,3 +15,7 @@ type Query {
 	alunos: [Aluno!]!
 	cursos: [Curso!]!
 }
+
+type Mutation {
+	cadastrarAluno(id: ID!, nome: String!, idade: Int!): Boolean!
+}
