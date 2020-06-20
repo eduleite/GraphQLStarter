@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GraphQLStarter.GraphQL;
+using GraphQLStarter.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -18,6 +19,7 @@ namespace GraphQLStarter
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddStarterGraphQL();
+            services.AddSingleton<Database>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
